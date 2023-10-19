@@ -11,30 +11,20 @@
           />
         </div>
       </div>
-
-      <div class="field is-grouped is-grouped-right">
-        <div class="control">
-          <button
-            @click="addNote"
-            :disabled="!newNote"
-            class="button is-link has-background-success"
-          >
-            Add New Note
-          </button>
-        </div>
-      </div>
     </div>
 
-    <div v-for="note in notes" :key="note.id" class="card mb-4">
-      <div class="card-content">
-        <div class="content">
-          {{ note.content }}
-        </div>
+    <Note v-for="note in notes" :key="note.id" :note="note" />
+
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <button
+          @click="addNote"
+          :disabled="!newNote"
+          class="button is-link has-background-success"
+        >
+          Add New Note
+        </button>
       </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Edit</a>
-        <a href="#" class="card-footer-item">Delete</a>
-      </footer>
     </div>
   </div>
 </template>
@@ -43,6 +33,7 @@
 // IMPORTS
 import { ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
+import Note from '@/components/Notes/Note.vue';
 
 // NOTES
 
