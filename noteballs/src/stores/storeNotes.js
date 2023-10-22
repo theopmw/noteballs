@@ -12,6 +12,10 @@ export const useStoreNotes = defineStore('storeNotes', {
         id: 'id2',
         content: 'Short note',
       },
+      {
+        id: 'id3',
+        content: 'Note 3',
+      },
     ],
   }),
 });
