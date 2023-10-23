@@ -37,7 +37,6 @@
 <script setup>
 // IMPORTS
 import { ref } from 'vue';
-import { v4 as uuidv4 } from 'uuid';
 import Note from '@/components/Notes/Note.vue';
 import { useStoreNotes } from '@/stores/storeNotes';
 
@@ -51,15 +50,7 @@ const newNoteRef = ref(null);
 const storeNotes = useStoreNotes();
 
 const addNote = () => {
-  let note = {
-    id: uuidv4(),
-    content: newNote.value,
-  };
-  notes.value.unshift(note);
-
-  newNote.value = '';
-
-  newNoteRef.value.focus();
+  storeNotes.addNote(newNote.value);
 };
 
 const deleteNote = (idToDelete) => {

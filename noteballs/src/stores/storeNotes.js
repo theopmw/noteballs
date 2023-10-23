@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useStoreNotes = defineStore('storeNotes', {
   state: () => ({
@@ -14,4 +15,15 @@ export const useStoreNotes = defineStore('storeNotes', {
       },
     ],
   }),
+  actions: {
+    addNote(newNoteContent) {
+      let note = {
+        id: uuidv4(),
+        content: newNoteContent,
+      };
+      this.notes.unshift(note);
+      newNote.value = '';
+      newNoteRef.value.focus();
+    },
+  },
 });
