@@ -25,5 +25,10 @@ export const useStoreNotes = defineStore('storeNotes', {
       newNote.value = '';
       newNoteRef.value.focus();
     },
+    deleteNote(idToDelete) {
+      this.notes = this.notes.filter((note) => {
+        return note.id !== idToDelete;
+      });
+    },
   },
 });

@@ -13,12 +13,7 @@
       </div>
     </div>
 
-    <Note
-      v-for="note in storeNotes.notes"
-      :key="note.id"
-      :note="note"
-      @deleteClicked="deleteNote"
-    />
+    <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" />
 
     <div class="field is-grouped is-grouped-right">
       <div class="control">
@@ -51,11 +46,5 @@ const storeNotes = useStoreNotes();
 
 const addNote = () => {
   storeNotes.addNote(newNote.value);
-};
-
-const deleteNote = (idToDelete) => {
-  notes.value = notes.value.filter((note) => {
-    return note.id !== idToDelete;
-  });
 };
 </script>
